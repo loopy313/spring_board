@@ -69,12 +69,13 @@ public class BController {
 		command.execute(model);
 		return "reply_view";
 	}
-	
+
 	@RequestMapping("/reply")
 	public String reply(HttpServletRequest request,Model model){
 		System.out.println("reply()");
 		model.addAttribute("request",request);
-		command=new BReplyCommand(); 
+		command=new BReplyCommand();
+		command.execute(model);
 		return "redirect:list";
 	}
 	
