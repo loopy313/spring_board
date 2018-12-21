@@ -24,11 +24,11 @@
 		</tr>
 		<tr>
 			<td>이름</td>
-			<td>${reply_view.bName}</td>
+			<td><input type="text" name="bName" value="${reply_view.bName}"></td>
 		</tr>
 		<tr>
 			<td>제목</td>
-			<td>${reply_view.bTitle}</td>
+			<td><input type="text" name="bTitle" value="${reply_view.bTitle}"></td>
 		</tr>
 		<tr>
 			<td>내용</td>

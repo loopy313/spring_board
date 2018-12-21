@@ -217,8 +217,8 @@ public class BDao {
 			preparedStatement.setString(2, bTitle);
 			preparedStatement.setString(3, bContent);
 			preparedStatement.setInt(4, Integer.parseInt(bGroup));
-			preparedStatement.setInt(5, Integer.parseInt(bStep));
-			preparedStatement.setInt(6, Integer.parseInt(bIndent));
+			preparedStatement.setInt(5, Integer.parseInt(bStep)+1);
+			preparedStatement.setInt(6, Integer.parseInt(bIndent)+1);
 			int rn=preparedStatement.executeUpdate();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -239,7 +239,7 @@ public class BDao {
 		
 		try{
 			connection=dataSource.getConnection();
-			String query="update mvc_board set bStep=bstep+1 where bgroup=? and bstep=?";
+			String query="update mvc_board set bStep=bstep+1 where bgroup=? and bstep>?";
 			preparedStatement=connection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.parseInt(bGroup));
 			preparedStatement.setInt(2, Integer.parseInt(bStep));
@@ -295,6 +295,6 @@ public class BDao {
 				e.printStackTrace();
 			}
 		}
-		return null;
+		return dto;
 	}
 }
